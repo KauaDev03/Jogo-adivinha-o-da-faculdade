@@ -1,0 +1,35 @@
+import random
+
+print("***********************************")
+print("Bem vindo ao jogo de Adivinhação")
+print("**********************************")
+
+numero_secreto = random.randint(1, 101)
+print(numero_secreto)
+total_de_tentativas = 3
+rodada = 1
+
+while total_de_tentativas > 0:
+    while True:
+        numeroJogador = int(input('Digite um número de 1 a 100: '))
+        if numeroJogador < 1 or numeroJogador > 100:
+            print('Digite apenas um número entre 1 e 100!')
+        else:
+            break
+    if numeroJogador == numero_secreto:
+        print('Parabens! Você venceu o jogo.')
+        break
+    else:
+        total_de_tentativas -= 1
+        if total_de_tentativas == 0:
+            break
+        if numeroJogador > numero_secreto:
+            print('Seu número está acima do número secreto. Digite um valor menor.')
+        else:
+            print('Seu número está abaixo do número secreto. Digite um valor maior.')
+
+
+if total_de_tentativas == 0:
+    print(f'Você perdeu. o número secreto é o {numero_secreto}')
+
+
